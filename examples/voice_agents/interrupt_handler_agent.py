@@ -101,7 +101,7 @@ async def entrypoint(ctx: JobContext):
         vad=silero.VAD.load(),
         stt=deepgram.STT(model="nova"),
         llm=groq.LLM(model="llama-3.1-8b-instant"),
-        tts=deepgram.TTS(model="aura-asteria-en", stream = True),  # ✅ NEW TTS
+        tts=deepgram.TTS(model="aura-asteria-en"),  # ✅ NEW TTS
     )
 
 
