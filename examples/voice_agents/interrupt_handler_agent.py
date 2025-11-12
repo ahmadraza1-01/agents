@@ -113,7 +113,8 @@ async def entrypoint(ctx: JobContext):
         room=ctx.room
     )
     session.on("transcription", lambda e: asyncio.create_task(agent.on_transcription(e)))
-    session.on("vad", agent.on_vad)   # Auto resume on silence
+    session.on("vad", lambda e: asyncio.create_task(agent.on_vad(e)))
+
 
 
 if __name__ == "__main__":
